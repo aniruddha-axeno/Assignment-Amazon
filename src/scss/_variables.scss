@@ -1,11 +1,11 @@
 @font-face {
     font-family: amazon_ember_bold;
-    src: url(../../src/fonts/Amazon\ Ember\ Bold.ttf);
-}
-@font-face {
+    src: url(./fonts/AmazonEmberBold.ttf);
+  }
+  @font-face {
     font-family: amazon_ember_regular;
-    src: url(../../src/fonts/Amazon\ Ember.ttf);
-}
+    src: url(./fonts/AmazonEmberBold.ttf);
+  }
 $white : #fff;
 $black : #000;
 $font-ember-bold : "amazon_ember_bold";

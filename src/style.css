@@ -1,10 +1,10 @@
 @font-face {
   font-family: amazon_ember_bold;
-  src: url(../../src/fonts/Amazon\ Ember\ Bold.ttf);
+  src: url(./fonts/AmazonEmberBold.ttf);
 }
 @font-face {
   font-family: amazon_ember_regular;
-  src: url(../../src/fonts/Amazon\ Ember.ttf);
+  src: url(./fonts/AmazonEmberBold.ttf);
 }
 * {
   padding: 0;
