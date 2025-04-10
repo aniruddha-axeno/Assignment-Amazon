@@ -1,0 +1,608 @@
+@font-face {
+  font-family: amazon_ember_bold;
+  src: url(../../src/fonts/Amazon\ Ember\ Bold.ttf);
+}
+@font-face {
+  font-family: amazon_ember_regular;
+  src: url(../../src/fonts/Amazon\ Ember.ttf);
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+@media (max-width: 1200px) {
+  * {
+    font-size: 12px;
+  }
+}
+@media (max-width: 1000px) {
+  * {
+    font-size: 10px;
+  }
+}
+@media (max-width: 768px) {
+  * {
+    font-size: 8px;
+  }
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  max-width: 1920px;
+}
+
+.header {
+  background-color: #111921;
+  display: flex;
+  flex-direction: column;
+}
+.header > div {
+  display: flex;
+  flex-direction: row;
+  padding: 0.2rem 1rem;
+  justify-content: space-between;
+}
+.header__logo {
+  font-family: "amazon_ember_bold";
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+  padding: 0.4rem 0.4rem;
+  border: 0.1rem solid transparent;
+  cursor: pointer;
+}
+.header__logo:hover {
+  border: 0.1rem solid #fff;
+  border-radius: 0.1rem;
+}
+.header__logo--image {
+  width: 7rem;
+  margin: 0.3rem;
+}
+.header__logo--in {
+  color: #fff;
+  margin: 0.3rem 0;
+}
+.header__address {
+  font-family: "amazon_ember_bold";
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  border: 0.1rem solid transparent;
+  padding: 0.4rem 0.4rem;
+}
+.header__address:hover {
+  border: 0.1rem solid #fff;
+  border-radius: 0.1rem;
+}
+.header__address--icon {
+  width: 1.5rem;
+}
+.header__address--location {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.header__address--city {
+  color: #d0cbcd;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-family: "amazon_ember_bold";
+  text-wrap-mode: nowrap;
+}
+.header__address--updatelocation {
+  color: #fff;
+  font-size: 1rem;
+  font-style: normal;
+  font-family: "amazon_ember_bold";
+  text-wrap-mode: nowrap;
+}
+@media (max-width: 768px) {
+  .header__address {
+    display: none;
+  }
+}
+.header__search {
+  display: flex;
+  flex-direction: row;
+  padding: 0.5rem 1rem;
+  position: relative;
+}
+.header__search--category {
+  width: 3.5rem;
+  border: 0;
+  outline: 0;
+  text-align: center;
+  cursor: pointer;
+  border-top-left-radius: 0.3rem;
+  border-bottom-left-radius: 0.3rem;
+  background-color: #d0cbcd;
+  color: #333538;
+}
+.header__search--category option {
+  background-color: #fff;
+  text-align: left;
+}
+.header__search--category:hover {
+  color: #000;
+}
+.header__search--inputbox {
+  width: 22rem;
+  border: 0;
+  outline: 0;
+  padding-left: 0.5rem;
+  font-size: 1rem;
+}
+.header__search--inputbox::placeholder {
+  font-size: 1rem;
+}
+.header__search--submit {
+  background-color: #FFBA65;
+  border: 0;
+  outline: 0;
+  padding: 0.5rem 0.6rem;
+  cursor: pointer;
+  border-top-right-radius: 0.3rem;
+  border-bottom-right-radius: 0.3rem;
+}
+.header__search--submit-icon {
+  width: 1.4rem;
+}
+.header__search--submit:hover {
+  background-color: #ee9a32;
+}
+.header__search:focus {
+  outline: 1rem solid #ee9a32;
+}
+.header__search .suggestedresult,
+.header__search .resulthistory {
+  position: absolute;
+  border-radius: 0.1rem;
+  width: 81.75%;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  display: none;
+  top: 88%;
+  left: 15%;
+}
+.header__search .suggestedresult a,
+.header__search .resulthistory a {
+  padding: 0.6rem;
+  color: #000;
+  font-size: 1rem;
+  font-family: "amazon_ember_bold";
+  align-content: center;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.header__search .suggestedresult a:hover,
+.header__search .resulthistory a:hover {
+  background-color: #f0e9ec;
+}
+.header__search .suggestedresult img,
+.header__search .resulthistory img {
+  width: 1.2rem;
+}
+.header__search .resulthistory a {
+  display: flex;
+  justify-content: space-between;
+  color: #9E128B;
+}
+.header__search .resulthistory a img {
+  width: 1rem;
+}
+.header__language {
+  align-content: center;
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  border: 0.1rem solid transparent;
+  padding: 0.5rem 0.1rem;
+  gap: 0.2rem;
+}
+.header__language:hover {
+  border: 0.1rem solid #fff;
+  border-radius: 0.1rem;
+}
+.header__language--icon {
+  width: 1.5rem;
+}
+.header__language--p {
+  color: #fff;
+  font-size: 1rem;
+  font-style: normal;
+  font-family: "amazon_ember_bold";
+  text-wrap-mode: nowrap;
+  align-content: center;
+}
+.header__language--arrow {
+  width: 0.5rem;
+}
+@media (max-width: 768px) {
+  .header__language {
+    display: none;
+  }
+}
+.header__account {
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  border: 0.1rem solid transparent;
+  padding: 0.5rem 0.5rem;
+}
+.header__account:hover {
+  border: 0.1rem solid #fff;
+  border-radius: 0.1rem;
+}
+.header__account--div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.header__account--signin {
+  color: #fff;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-family: "amazon_ember_bold";
+  text-wrap-mode: nowrap;
+}
+.header__account--accountlist {
+  color: #fff;
+  font-size: 1rem;
+  font-style: normal;
+  font-family: "amazon_ember_bold";
+  text-wrap-mode: nowrap;
+}
+.header__account--arrow {
+  width: 0.5rem;
+}
+@media (max-width: 768px) {
+  .header__account {
+    display: none;
+  }
+}
+.header__order {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  border: 0.1rem solid transparent;
+  justify-content: center;
+  padding: 0.5rem 0.5rem;
+}
+.header__order:hover {
+  border: 0.1rem solid #fff;
+  border-radius: 0.1rem;
+}
+.header__order--signin {
+  color: #fff;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-family: "amazon_ember_bold";
+  text-wrap-mode: nowrap;
+}
+.header__order--accountlist {
+  color: #fff;
+  font-size: 1rem;
+  font-style: normal;
+  font-family: "amazon_ember_bold";
+  text-wrap-mode: nowrap;
+}
+.header__order--arrow {
+  width: 0.5rem;
+}
+@media (max-width: 768px) {
+  .header__order {
+    display: none;
+  }
+}
+.header__cart {
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  border: 0.1rem solid transparent;
+  position: relative;
+  align-items: center;
+}
+.header__cart:hover {
+  border: 0.1rem solid #fff;
+  border-radius: 0.1rem;
+}
+.header__cart--number {
+  position: absolute;
+  color: #ee9a32;
+  font-weight: 600;
+  font-size: 1.25rem;
+  top: 10%;
+  left: 14%;
+}
+.header__cart--icon {
+  width: 2rem;
+}
+.header__cart--p {
+  color: #fff;
+  font-size: 1rem;
+  font-style: normal;
+  font-family: "amazon_ember_bold";
+  text-wrap-mode: nowrap;
+}
+.header__categories {
+  width: 100%;
+  background-color: #1e2f3e;
+}
+.header__categories--list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.header__categories--list li {
+  list-style-type: none;
+  border: 0.1rem solid transparent;
+  cursor: pointer;
+  height: 100%;
+}
+.header__categories--list li:hover {
+  border: 0.1rem solid #fff;
+  border-radius: 0.1rem;
+}
+.header__categories--list li a {
+  height: 100%;
+  margin: 0.5rem 0.3rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.2rem;
+  text-decoration: none;
+  color: #fff;
+  font-family: "amazon_ember_regular";
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-wrap-mode: nowrap;
+}
+.header__categories--list li a img {
+  width: 0.6rem;
+}
+.header__categories--list li .hamburger__menu {
+  width: 1.2rem;
+}
+@media (max-width: 768px) {
+  .header__categories--list {
+    overflow-x: scroll;
+  }
+}
+
+.main {
+  background-color: rgb(242, 245, 248);
+  flex: 1;
+}
+.main__banner {
+  width: 100%;
+}
+
+.searchresult {
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+}
+.searchresult__desc {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0.4rem;
+  box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+  border: 1px solid #d0cbcd;
+}
+.searchresult__desc--left {
+  color: #000;
+  font-family: "amazon_ember_regular";
+  font-size: 0.9rem;
+}
+.searchresult__desc--left span {
+  color: #c6581c;
+  font-family: "amazon_ember_bold";
+}
+.searchresult__desc .searchresult__sortby {
+  background-color: #EFF2F2;
+  border: 1px solid #d0cbcd;
+  border-radius: 0.4rem;
+  padding: 0.2rem;
+  cursor: pointer;
+  font-size: 0.75rem;
+}
+.searchresult__desc .searchresult__sortby:hover {
+  background-color: #dcdede;
+}
+.searchresult__main {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  font-family: "amazon_ember_regular";
+}
+.searchresult__main .mainleft {
+  flex: 1;
+}
+@media (max-width: 768px) {
+  .searchresult__main .mainleft {
+    display: none;
+  }
+}
+.searchresult__main .mainright {
+  flex: 3;
+  padding: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+.searchresult__main .mainright__title--main {
+  font-size: 1.25rem;
+  font-family: "amazon_ember_bold";
+}
+.searchresult__main .mainright__title--desc {
+  color: #827f84;
+}
+.searchresult__main .mainright__results {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.searchresult__main .mainright__results--product {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #f5f0f2;
+  gap: 1rem;
+}
+.searchresult__main .product__image {
+  padding: 1rem;
+  background-color: #F7F7F7;
+}
+.searchresult__main .product__image--img {
+  width: 15rem;
+}
+.searchresult__main .product__details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.searchresult__main .product__details--ratingdiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.searchresult__main .product__details--ratingdiv--reviewcount {
+  color: #1e2f3e;
+}
+.searchresult__main .product__details--rating {
+  font-size: 1.75rem;
+}
+.searchresult__main .product__details--price {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.4rem;
+}
+.searchresult__main .product__details--price > div {
+  color: #5e5d5f;
+  font-size: 1rem;
+  font-style: normal;
+  font-family: "amazon_ember_bold";
+  text-wrap-mode: nowrap;
+  font-family: "amazon_ember_regular";
+}
+.searchresult__main .product__details--price h2 {
+  font-weight: 500;
+}
+.searchresult__main .product__details--title {
+  font-size: 1.5rem;
+  font-weight: 400;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  cursor: pointer;
+}
+.searchresult__main .product__details--title:hover {
+  color: #af6000;
+}
+.searchresult__main .product__details--addcart {
+  background-color: #ffde08;
+  border: 0;
+  outline: 0;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  width: max-content;
+  cursor: pointer;
+}
+.searchresult__main .product__details--addcart:hover {
+  background-color: #f3bb22;
+}
+.searchresult__main .product__details--save {
+  color: #827f84;
+  font-size: 1rem;
+  font-style: normal;
+  font-family: "amazon_ember_bold";
+  text-wrap-mode: nowrap;
+  font-family: "amazon_ember_regular";
+}
+.searchresult__main .mainleft--title {
+  margin: 1.3rem 1rem;
+  font-family: "amazon_ember_bold";
+}
+.searchresult__main .mainleft__common {
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+.searchresult__main .mainleft__common input {
+  cursor: pointer;
+}
+.searchresult__main .mainleft__common label {
+  cursor: pointer;
+}
+.searchresult__main .mainleft__common label:hover {
+  color: #af6000;
+}
+.searchresult__main .mainleft__price {
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1rem;
+}
+.searchresult__main .mainleft__price--h5 {
+  display: flex;
+}
+.searchresult__main .mainleft__pricerange {
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+}
+.searchresult__main .mainleft__pricerange input[type=range] {
+  position: absolute;
+  pointer-events: none;
+  width: 60%;
+}
+.searchresult__main .mainleft__pricerange input[type=range]::-webkit-slider-thumb {
+  width: 1rem;
+  height: 1rem;
+  background: teal;
+  border: 3px solid white;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(0, 128, 128, 0.3);
+  cursor: pointer;
+  pointer-events: auto;
+  position: relative;
+  z-index: 4;
+}
+.searchresult__main .mainleft__pricerange--button {
+  position: absolute;
+  right: 20%;
+  padding: 0.4rem 0.8rem;
+  border-radius: 2rem;
+  border: 1px solid #c1bdbf;
+  outline: 0;
+  background-color: #fff;
+  cursor: pointer;
+}
+.searchresult__main .mainleft__pricerange--button:hover {
+  background-color: #f5f0f2;
+}

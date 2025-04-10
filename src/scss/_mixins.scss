@@ -1,0 +1,40 @@
+@use "./variables" as *;
+@mixin flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin flex($direction){
+    display: flex;
+    flex-direction: $direction;
+}
+@mixin hw-full{
+    height: 100%;
+    width: 100%;
+}
+
+@mixin hover-white{
+    cursor: pointer;
+    &:hover{
+        border: 0.1rem solid $white;
+        border-radius: 0.1rem;
+
+    }
+}
+@mixin empty-border{
+    border : 0.1rem solid transparent;
+}
+@mixin para-small($color){
+    color: $color;
+    font-size: $font-sm;
+    font-style: normal;
+    font-family: $font-ember-bold;
+    text-wrap-mode: nowrap;
+}
+@mixin para-medium($color){
+    color: $color;
+    font-size: $font-nm;
+    font-style: normal;
+    font-family: $font-ember-bold;
+    text-wrap-mode: nowrap;
+}

@@ -1,0 +1,14 @@
+{
+  "name": "barchart",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "sass --no-source-map ./src/style.scss ./dist/style.css"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "sass": "^1.86.0"
+  }
+}

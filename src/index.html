@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AmazonUi</title>
+  <link rel="stylesheet" href="../dist/style.css">
+  <script defer src="./index.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+    <header class="header">
+      <div>
+        <a class="header__logo" href="">
+          <img class="header__logo--image" src="./images/amazon_logo.png" alt="amazon logo">
+          <span class="header__logo--in">.in</span>
+        </a>
+        <address class="header__address">
+          <img class="header__address--icon" src="./images/location_icon.svg" alt="location icon">
+          <div class="header__address--location">
+            <p class="header__address--city"></p>
+            <p class="header__address--updatelocation">Update location</p>
+          </div>
+        </address>
+        <form class="header__search">
+          <select class="header__search--category" name="searchcategory">
+            <option selected disabled hidden>All</option>
+          </select>
+          <input class="header__search--inputbox" type="text" placeholder="Search Amazon.in">
+          <button class="header__search--submit" type="submit">
+            <img class="header__search--submit-icon" src="./images/search_icon.svg" alt="search icon">
+          </button>
+          <div class="resulthistory"></div>
+          <div class="suggestedresult"></div>
+        </form>
+        <div class="header__language">
+          <img class="header__language--icon" src="./images/indian_flag.svg" alt="indian flag icon">
+          <p class="header__language--p">EN</p>
+          <img class="header__language--arrow" src="./images/down_arrow.svg" alt="down arrow">
+        </div>
+        <div class="header__account">
+          <div class="header__account--div">
+            <p class="header__account--signin">Hello, sign in</p>
+            <p class="header__account--accountlist">Account & Lists</p>
+          </div>
+          <img class="header__account--arrow" src="./images/down_arrow.svg" alt="down arrow">
+        </div>
+        <div class="header__order">
+          <p class="header__order--signin">Returns</p>
+          <p class="header__order--accountlist">& Orders</p>
+        </div>
+        <div class="header__cart">
+          <p class="header__cart--number">0</p>
+          <img class="header__cart--icon" src="./images/cart.svg" alt="cart icon">
+          <p class="header__cart--p">Cart</p>
+        </div>
+      </div>
+      <nav class="header__categories">
+          <ul class="header__categories--list">
+            <li><a href="#"><img class="hamburger__menu" src="./images/hamburger.svg" alt="hamburger menu">All</a></li>
+            <li><a href="#">Fresh <img src="./images/down_arrow.svg" alt="down arrow"></a></li>
+            <li><a href="#">MX Player</a></li>
+            <li><a href="#">Sell</a></li>
+            <li><a href="#">Best Seller</a></li>
+            <li><a href="#">Mobiles</a></li>
+            <li><a href="#">Today's Deals</a></li>
+            <li><a href="#">Prime <img src="./images/down_arrow.svg" alt="down arrow"></a></li>
+            <li><a href="#">Customer Service</a></li>
+            <li><a href="#">New Releases</a></li>
+            <li><a href="#">Electronics</a></li>
+            <li><a href="#">Fashion</a></li>
+            <li><a href="#">Home & Kitchen</a></li>
+            <li><a href="#">Amazon Pay</a></li>
+          </ul>
+        </nav>
+    </header>
+
+    <main class="main">
+      <img class="main__banner" src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/Wireless/devjyoti/GW/Uber/Nov/uber_new_high._CB537689643_.jpg" alt="samsung phone ad">
+    </main>
+
+  </div>
+</body>
+</html>

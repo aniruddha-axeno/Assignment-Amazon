@@ -1,0 +1,35 @@
+@font-face {
+    font-family: amazon_ember_bold;
+    src: url(../../src/fonts/Amazon\ Ember\ Bold.ttf);
+}
+@font-face {
+    font-family: amazon_ember_regular;
+    src: url(../../src/fonts/Amazon\ Ember.ttf);
+}
+$white : #fff;
+$black : #000;
+$font-ember-bold : "amazon_ember_bold";
+$font-ember-regular : "amazon_ember_regular";
+
+$primary-color : #333538;
+$secondary-color : #111921;
+$blue-color : #1e2f3e;
+$gray-color : #827f84;
+$gray-100-color : #c1bdbf;
+$gray-200-color : #d0cbcd;
+$gray-300-color : #f0e9ec;
+$gray-400-color : #f5f0f2;
+$gray-dark-color : #5e5d5f;
+$yellow-color : #ffde08;
+$yellow-100-color : #f3bb22;
+$font-small : 0.875rem;
+$font-family : Helvetica;
+
+$font-sm : 0.75rem;
+$font-lsm : 0.9rem;
+$font-nm : 1rem;
+$font-xnm : 1.15rem;
+$font-md : 1.25rem;
+$font-lg : 1.5rem;
+$font-xl : 1.75rem;
+$font-xxl : 2rem;
