@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "sass --no-source-map ./src/style.scss ./dist/style.css"
+    "build": "sass --no-source-map ./src/style.scss ./src/style.css"
   },
   "author": "",
   "license": "ISC",
