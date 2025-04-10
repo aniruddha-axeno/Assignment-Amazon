@@ -412,6 +412,7 @@ body {
 @media (max-width: 768px) {
   .header__categories--list {
     overflow-x: scroll;
+    padding: 0 1rem;
   }
 }
 
@@ -464,6 +465,11 @@ body {
   width: 100%;
   font-family: "amazon_ember_regular";
   position: relative;
+}
+@media (max-width: 768px) {
+  .searchresult__main {
+    padding: 0 1rem;
+  }
 }
 .searchresult__main .mainleft {
   flex: 1;

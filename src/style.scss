@@ -350,6 +350,7 @@ body {
 
             @media (max-width: 768px) {
                 overflow-x: scroll;
+                    padding: 0 1rem;
             }
         }
     }
@@ -406,6 +407,9 @@ body {
         @include hw-full;
         font-family: $font-ember-regular;
         position: relative;
+        @media(max-width:768px){
+            padding: 0 1rem;
+        }
         .mainleft {
             flex: 1;
             &--title{
