@@ -1,20 +1,20 @@
-@use './scss/mixins' as *;
-@use './scss/variables' as *;
+@use "./scss/mixins" as *;
+@use "./scss/variables" as *;
 
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 
-    @media(max-width : 1200px) {
+    @media (max-width: 1200px) {
         font-size: 12px;
     }
 
-    @media(max-width : 1000px) {
+    @media (max-width: 992px) {
         font-size: 10px;
     }
 
-    @media(max-width : 768px) {
+    @media (max-width: 768px) {
         font-size: 8px;
     }
 }
@@ -23,7 +23,7 @@ html,
 body {
     @include hw-full;
     @include flex(column);
-    align-items: center
+    align-items: center;
 }
 
 .wrapper {
@@ -34,14 +34,15 @@ body {
 
 .header {
     background-color: $secondary-color;
-    @include flex(column);
-
-    &>div {
-        @include flex(row);
-        padding: 0.2rem 1rem;
-        justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 1fr auto;
+    justify-items: center;
+    justify-content: space-between;
+    @media(max-width : 768px){
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: 1fr auto auto auto;
     }
-
     &__logo {
         font-family: $font-ember-bold;
         @include flex(row);
@@ -67,7 +68,11 @@ body {
         @include hover-white;
         @include empty-border;
         padding: 0.4rem 0.4rem;
-
+        @media(max-width:768px){
+            grid-row: 3/4;
+            grid-column: 1/-1;
+            justify-self: start;
+        }
         &--icon {
             width: 1.5rem;
         }
@@ -75,6 +80,11 @@ body {
         &--location {
             @include flex(column);
             justify-content: center;
+            @media(max-width:768px){
+                flex-direction: row;
+                gap: 1rem;
+                align-items: center;
+            }
         }
 
         &--city {
@@ -84,16 +94,18 @@ body {
         &--updatelocation {
             @include para-medium($white);
         }
-        @media(max-width : 768px){
-            display: none;
-        }
     }
 
     &__search {
         @include flex(row);
         padding: 0.5rem 1rem;
         position: relative;
-
+        @media(max-width:768px){
+            grid-row: 2/3;
+            grid-column: 1/-1;
+            width: 100%;
+            padding: 0 0.7rem;
+        }
         &--category {
             width: 3.5rem;
             border: 0;
@@ -113,6 +125,9 @@ body {
             &:hover {
                 color: $black;
             }
+            @media(max-width:768px){
+                width: 20%;
+            }
         }
 
         &--inputbox {
@@ -125,10 +140,13 @@ body {
             &::placeholder {
                 font-size: $font-nm;
             }
+            @media(max-width:768px){
+                width: 70%;
+            }
         }
 
         &--submit {
-            background-color: #FFBA65;
+            background-color: #ffba65;
             border: 0;
             outline: 0;
             padding: 0.5rem 0.6rem;
@@ -142,6 +160,9 @@ body {
 
             &:hover {
                 background-color: #ee9a32;
+            }
+            @media(max-width:768px){
+                width: 10%;
             }
         }
 
@@ -186,7 +207,7 @@ body {
             a {
                 display: flex;
                 justify-content: space-between;
-                color: #9E128B;
+                color: #9e128b;
 
                 img {
                     width: 1rem;
@@ -215,9 +236,6 @@ body {
         &--arrow {
             width: 0.5rem;
         }
-        @media(max-width:768px){
-            display: none;
-        }
     }
 
     &__account {
@@ -242,9 +260,6 @@ body {
         &--arrow {
             width: 0.5rem;
         }
-        @media(max-width:768px){
-            display: none;
-        }
     }
 
     &__order {
@@ -264,9 +279,6 @@ body {
 
         &--arrow {
             width: 0.5rem;
-        }
-        @media(max-width : 768px){
-            display: none;
         }
     }
 
@@ -293,18 +305,22 @@ body {
         &--p {
             @include para-medium($white);
         }
-
     }
 
     &__categories {
         width: 100%;
         background-color: $blue-color;
+        grid-row: 2/3;
+        grid-column: 1/-1;
+        @media(max-width:768px){
+            grid-row: 4/5;
+            grid-column: 1/-1;
+        }
         &--list {
             @include flex(row);
             justify-content: space-between;
-            
-            li {
 
+            li {
                 list-style-type: none;
                 @include empty-border;
                 @include hover-white;
@@ -321,6 +337,7 @@ body {
                     font-size: $font-lsm;
                     font-weight: 500;
                     text-wrap-mode: nowrap;
+
                     img {
                         width: 0.6rem;
                     }
@@ -330,7 +347,8 @@ body {
                     width: 1.2rem;
                 }
             }
-            @media(max-width:768px){
+
+            @media (max-width: 768px) {
                 overflow-x: scroll;
             }
         }
@@ -343,7 +361,6 @@ body {
 
     &__banner {
         width: 100%;
-
     }
 }
 
@@ -371,16 +388,16 @@ body {
         }
 
         .searchresult__sortby {
-            background-color: #EFF2F2;
+            background-color: #eff2f2;
             border: 1px solid $gray-200-color;
             border-radius: 0.4rem;
             padding: 0.2rem;
             cursor: pointer;
             font-size: $font-sm;
+
             &:hover {
                 background-color: #dcdede;
             }
-            
         }
     }
 
@@ -388,10 +405,50 @@ body {
         @include flex(row);
         @include hw-full;
         font-family: $font-ember-regular;
+        position: relative;
         .mainleft {
             flex: 1;
-            @media(max-width:768px){
-                display: none;
+            &--title{
+                &-image{
+                    display: none;
+                }
+                &-category{
+                    margin: 1rem;
+                    font-family: $font-ember-bold;
+                }
+                &--cross{
+                    display: none;
+                }
+            }
+            @media (max-width: 768px) {
+                position: absolute;
+                width: 18rem; 
+                &__filter{
+                    background-color: $white;
+                    position: absolute;
+                    margin-top: 4rem;
+                    left: -30rem;
+                    width: 20rem;
+                }
+                &--title{
+                    @include flex(row);
+                    width: max-content;
+                    position: absolute;
+                    gap: 0.3rem;
+                    &-image{
+                        display: block;
+                        width: 1.2rem;
+                    }
+                    &-ham{
+                        filter: invert(1);
+                    }
+                    &-cross{
+                        padding: 0.2rem;
+                    }
+                    &--cross{
+                        display: none;
+                    }
+                }
             }
         }
 
@@ -401,7 +458,9 @@ body {
             @include flex(column);
             margin-top: 1rem;
             gap: 1rem;
-
+            @media(max-width:768px){
+                margin-top: 4rem;
+            }
             &__title {
                 &--main {
                     font-size: $font-md;
@@ -428,7 +487,7 @@ body {
         .product {
             &__image {
                 padding: 1rem;
-                background-color: #F7F7F7;
+                background-color: #f7f7f7;
 
                 &--img {
                     width: 15rem;
@@ -505,9 +564,10 @@ body {
 
         .mainleft {
             &--title {
-                margin: 1.3rem 1rem;
+                margin: 1.3rem 0.3rem;
                 font-family: $font-ember-bold;
             }
+
             &__common {
                 margin-left: 1rem;
                 margin-bottom: 0.5rem;
@@ -529,7 +589,8 @@ body {
                 margin-left: 1rem;
                 @include flex(row);
                 margin-bottom: 1rem;
-                &--h5{
+
+                &--h5 {
                     display: flex;
                 }
             }
@@ -539,10 +600,12 @@ body {
                 @include flex(row);
                 align-items: center;
                 position: relative;
+
                 input[type="range"] {
                     position: absolute;
                     pointer-events: none;
                     width: 60%;
+
                     &::-webkit-slider-thumb {
                         width: 1rem;
                         height: 1rem;
@@ -556,7 +619,8 @@ body {
                         z-index: 4;
                     }
                 }
-                &--button{
+
+                &--button {
                     position: absolute;
                     right: 20%;
                     padding: 0.4rem 0.8rem;
@@ -565,7 +629,8 @@ body {
                     outline: 0;
                     background-color: $white;
                     cursor: pointer;
-                    &:hover{
+
+                    &:hover {
                         background-color: $gray-400-color;
                     }
                 }

@@ -62,7 +62,7 @@ const amazonUser = {
             toysAndGames: "Toys & Games",
             underTenDollars: "Under $10",
             videogames: "Video Games",
-            wholefoods: "Whole Foods Market"
+            wholefoods: "Whole Foods Market",
         },
     },
     init: function (container) {
@@ -71,19 +71,22 @@ const amazonUser = {
         this.getSearchResult();
     },
     renderDetails: function () {
-        this.container.querySelector(".header__address--city").innerHTML = `Delivering to ${this.data.location.city} ${this.data.location.pin}`;
-        const searchCategory = this.container.querySelector(".header__search--category");
+        this.container.querySelector(
+            ".header__address--city"
+        ).innerHTML = `Delivering to ${this.data.location.city} ${this.data.location.pin}`;
+        const searchCategory = this.container.querySelector(
+            ".header__search--category"
+        );
         for (const key in this.data.searchCategories) {
-            const newOption = document.createElement('option');
+            const newOption = document.createElement("option");
             newOption.textContent = this.data.searchCategories[key];
             newOption.value = key;
             searchCategory.appendChild(newOption);
         }
-
     },
     getSearchResult: function () {
         const resultHistory = this.container.querySelector(".resulthistory");
-        
+
         const fetchResult = (value) => {
             if (value === "") {
                 const resultbox = this.container.querySelector(".suggestedresult");
@@ -91,8 +94,7 @@ const amazonUser = {
                 resultHistory.style.display = "flex";
                 this.getResultHistory();
                 return;
-            }
-            else {
+            } else {
                 resultHistory.style.display = "none";
             }
             fetch(`https://dummyjson.com/products/search?q=${value}`)
@@ -107,43 +109,48 @@ const amazonUser = {
                 })
                 .catch((error) => {
                     console.log(error);
-                })
-        }
+                });
+        };
         let debounceTimer;
-        const searchInput = this.container.querySelector(".header__search--inputbox");
+        const searchInput = this.container.querySelector(
+            ".header__search--inputbox"
+        );
         searchInput.addEventListener("input", (e) => {
             clearTimeout(debounceTimer);
-            debounceTimer = setTimeout(()=>{
+            debounceTimer = setTimeout(() => {
                 fetchResult(e.target.value);
-            },300);   
-        })
+            }, 300);
+        });
         searchInput.addEventListener("click", (e) => {
             e.stopPropagation();
             fetchResult(e.target.value);
-        })
+        });
         const resultbox = this.container.querySelector(".suggestedresult");
         this.container.addEventListener("click", (e) => {
             if (!searchInput.contains(e.target) && !resultbox.contains(e.target)) {
                 resultbox.style.display = "none";
-            }
-            else {
+            } else {
                 resultbox.style.display = "flex";
             }
-        })
+        });
         const submitBtn = this.container.querySelector(".header__search--submit");
         submitBtn.addEventListener("click", (e) => {
             e.preventDefault();
-            const history = JSON.parse(localStorage.getItem("localStorageSearchHistory")) || [];
+            const history =
+                JSON.parse(localStorage.getItem("localStorageSearchHistory")) || [];
             console.log(searchInput.value);
             if (searchInput.value.trim()) {
                 redirect(searchInput.value);
                 history.unshift(searchInput.value);
-                localStorage.setItem("localStorageSearchHistory", JSON.stringify(history));
+                localStorage.setItem(
+                    "localStorageSearchHistory",
+                    JSON.stringify(history)
+                );
             }
-        })
+        });
     },
     getResultHistory: function () {
-        const local = localStorage.getItem('localStorageSearchHistory');
+        const local = localStorage.getItem("localStorageSearchHistory");
         let searchHistoryResults = JSON.parse(local);
         searchHistoryResults = searchHistoryResults.slice(0, 10);
         const resultHistory = this.container.querySelector(".resulthistory");
@@ -163,18 +170,22 @@ const amazonUser = {
                 });
                 newResult.addEventListener("click", () => {
                     redirect(searchHistoryResults[key]);
-                })
+                });
             }
         }
-        const searchInput = this.container.querySelector(".header__search--inputbox");
+        const searchInput = this.container.querySelector(
+            ".header__search--inputbox"
+        );
         this.container.addEventListener("click", (e) => {
-            if (!searchInput.contains(e.target) && !resultHistory.contains(e.target)) {
+            if (
+                !searchInput.contains(e.target) &&
+                !resultHistory.contains(e.target)
+            ) {
                 resultHistory.style.display = "none";
-            }
-            else {
+            } else {
                 resultHistory.style.display = "flex";
             }
-        })
+        });
     },
     createSuggestedSearch: function (result) {
         const resultbox = this.container.querySelector(".suggestedresult");
@@ -190,28 +201,28 @@ const amazonUser = {
             resultbox.appendChild(newResult);
             newResult.addEventListener("click", () => {
                 redirect(result[i].title);
-            })
+            });
         }
     },
     deleteItemFromStorage: function (historyKey) {
-        let history = JSON.parse(localStorage.getItem("localStorageSearchHistory")) || [];
+        let history =
+            JSON.parse(localStorage.getItem("localStorageSearchHistory")) || [];
         console.log(history);
         console.log(historyKey);
         history = Array.from(history);
         console.log(history);
-        history = history.filter(item => item !== historyKey);
+        history = history.filter((item) => item !== historyKey);
         localStorage.setItem("localStorageSearchHistory", JSON.stringify(history));
         this.getResultHistory();
-    }
-}
-
+    },
+};
 
 document.addEventListener("DOMContentLoaded", () => {
     const containers = document.querySelectorAll(".wrapper");
     containers.forEach((container) => {
         amazonUser.init(container);
-    })
-})
+    });
+});
 function redirect(value) {
     window.location.href = `./searchResult.html?search=${value}`;
 }

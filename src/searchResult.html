@@ -1,140 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amazon Search Result</title>
-    <link rel="stylesheet" href="./style.css">
-    <script defer src="./index.js"></script>
-    <script defer src="./searchResult.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazon Search Result</title>
+  <link rel="stylesheet" href="./style.css">
+  <script defer src="./index.js"></script>
+  <script defer src="./searchResult.js"></script>
 </head>
+
 <body>
-    <div class="wrapper">
-        <header class="header">
-          <div>
-            <a class="header__logo" href="./index.html">
-              <img class="header__logo--image" src="./images/amazon_logo.png" alt="amazon logo">
-              <span class="header__logo--in">.in</span>
-            </a>
-            <address class="header__address">
-              <img class="header__address--icon" src="./images/location_icon.svg" alt="location icon">
-              <div class="header__address--location">
-                <p class="header__address--city"></p>
-                <p class="header__address--updatelocation">Update location</p>
-              </div>
-            </address>
-            <form class="header__search">
-              <select class="header__search--category" name="searchcategory">
-                <option selected disabled hidden>All</option>
-              </select>
-              <input class="header__search--inputbox" type="text" placeholder="Search Amazon.in">
-              <button class="header__search--submit" type="submit">
-                <img class="header__search--submit-icon" src="./images/search_icon.svg" alt="search icon">
-              </button>
-              <div class="resulthistory"></div>
-              <div class="suggestedresult"></div>
-            </form>
-            <div class="header__language">
-              <img class="header__language--icon" src="./images/indian_flag.svg" alt="indian flag icon">
-              <p class="header__language--p">EN</p>
-              <img class="header__language--arrow" src="./images/down_arrow.svg" alt="down arrow">
-            </div>
-            <div class="header__account">
-              <div class="header__account--div">
-                <p class="header__account--signin">Hello, sign in</p>
-                <p class="header__account--accountlist">Account & Lists</p>
-              </div>
-              <img class="header__account--arrow" src="./images/down_arrow.svg" alt="down arrow">
-            </div>
-            <div class="header__order">
-              <p class="header__order--signin">Returns</p>
-              <p class="header__order--accountlist">& Orders</p>
-            </div>
-            <div class="header__cart">
-              <p class="header__cart--number">0</p>
-              <img class="header__cart--icon" src="./images/cart.svg" alt="cart icon">
-              <p class="header__cart--p">Cart</p>
-            </div>
-          </div>
-          <nav class="header__categories">
-              <ul class="header__categories--list">
-                <li><a href="#"><img class="hamburger__menu" src="./images/hamburger.svg" alt="hamburger menu">All</a></li>
-                <li><a href="#">Fresh <img src="./images/down_arrow.svg" alt="down arrow"></a></li>
-                <li><a href="#">MX Player</a></li>
-                <li><a href="#">Sell</a></li>
-                <li><a href="#">Best Seller</a></li>
-                <li><a href="#">Mobiles</a></li>
-                <li><a href="#">Today's Deals</a></li>
-                <li><a href="#">Prime <img src="./images/down_arrow.svg" alt="down arrow"></a></li>
-                <li><a href="#">Customer Service</a></li>
-                <li><a href="#">New Releases</a></li>
-                <li><a href="#">Electronics</a></li>
-                <li><a href="#">Fashion</a></li>
-                <li><a href="#">Home & Kitchen</a></li>
-                <li><a href="#">Amazon Pay</a></li>
-              </ul>
-            </nav>
-        </header>
-        <section class="searchresult">
-          <div class="searchresult__desc">
-            <div class="searchresult__desc--left"></div>
-            <div class="searchresult__desc--right">
-              <select class="searchresult__sortby" name="sortby">
-                <option selected hidden disabled>Sort by</option>
-                <option value="featured">Featured</option>
-                <option value="lowtohigh" >Price: Low to High</option>
-                <option value="hightolow" >Price: High to Low</option>
-                <option value="customerreview" >Avg. Customer Review</option>
-              </select>
-            </div>
-          </div>
-          <div class="searchresult__main">
-            <div class="mainleft">
-              <div class="mainleft--title">Filters</div>
-              <div class="mainleft--title">Category</div>
-              <div class="mainleft__common">
-                <input id="beuty" class="mainleft__beuty--checkbox" type="checkbox" value="beuty">
-                <label class="mainleft__beuty--label" for="beuty">Beauty</label>
-              </div>
-              <div class="mainleft__common">
-                <input id="mobile" class="mainleft__mobile--checkbox" type="checkbox" value="mobile-accessories">
-                <label class="mainleft__beuty--label" for="mobile">Mobile Accessories</label>
-              </div>
-              <div class="mainleft__common">
-                <input id="mensshirt" class="mainleft__menshirt--checkbox" type="checkbox" value="mens-shirts">
-                <label class="mainleft__beuty--label" for="mensshirt">Mens Shirt</label>
-              </div>
-              <div class="mainleft__common">
-                <input id="womenbags" class="mainleft__womenbags--checkbox" type="checkbox" value="womens-bags">
-                <label class="mainleft__beuty--label" for="womenbags">Womens Bags</label>
-              </div>
-              <div class="mainleft__common">
-                <input id="motorcycle" class="mainleft__motor--checkbox" type="checkbox" value="motorcycle">
-                <label class="mainleft__beuty--label" for="motorcycle">Motor Cycle</label>
-              </div>
-              <div class="mainleft__common">
-                <input id="kitchen" class="mainleft__kitchen--checkbox" type="checkbox" value="kitchen-accessories">
-                <label class="mainleft__beuty--label" for="kitchen">kitchen Accessories</label>
-              </div>
-              <div class="mainleft--title">Price</div>
-              <div class="mainleft__price">
-                <h5 class="mainleft__price--h5">₹ <div class="minprice">40</div> - ₹ <div class="maxprice"> 30000</div></h5>
-              </div>
-              <div class="mainleft__pricerange">
-                <input class="mainleft__pricerange--slidebarmin" type="range" min="40" max="30000" value="40" step="100">
-                <input class="mainleft__pricerange--slidebarmax" type="range"  min="40" max="30000" value="30000" step="100">
-                <button class="mainleft__pricerange--button">Go</button>
-              </div>
-            </div>
-            <div class="mainright">
-              <div class="mainright__title">
-                <h3 class="mainright__title--main">Results</h3>
-                <p>Check each product page for other buying options.</p>
-              </div>
-              <div class="mainright__results"></div>
-            </div>
-          </div>
-        </section>
+  <div class="wrapper">
+    <header class="header">
+      <a class="header__logo" href="./index.html">
+        <img class="header__logo--image" src="./images/amazon_logo.png" alt="amazon logo">
+        <span class="header__logo--in">.in</span>
+      </a>
+      <address class="header__address">
+        <img class="header__address--icon" src="./images/location_icon.svg" alt="location icon">
+        <div class="header__address--location">
+          <p class="header__address--city"></p>
+          <p class="header__address--updatelocation">Update location</p>
+        </div>
+      </address>
+      <form class="header__search">
+        <select class="header__search--category" name="searchcategory">
+          <option selected disabled hidden>All</option>
+        </select>
+        <input class="header__search--inputbox" type="text" placeholder="Search Amazon.in">
+        <button class="header__search--submit" type="submit">
+          <img class="header__search--submit-icon" src="./images/search_icon.svg" alt="search icon">
+        </button>
+        <div class="resulthistory"></div>
+        <div class="suggestedresult"></div>
+      </form>
+      <div class="header__language">
+        <img class="header__language--icon" src="./images/indian_flag.svg" alt="indian flag icon">
+        <p class="header__language--p">EN</p>
+        <img class="header__language--arrow" src="./images/down_arrow.svg" alt="down arrow">
       </div>
+      <div class="header__account">
+        <div class="header__account--div">
+          <p class="header__account--signin">Hello, sign in</p>
+          <p class="header__account--accountlist">Account & Lists</p>
+        </div>
+        <img class="header__account--arrow" src="./images/down_arrow.svg" alt="down arrow">
+      </div>
+      <div class="header__order">
+        <p class="header__order--signin">Returns</p>
+        <p class="header__order--accountlist">& Orders</p>
+      </div>
+      <div class="header__cart">
+        <p class="header__cart--number">0</p>
+        <img class="header__cart--icon" src="./images/cart.svg" alt="cart icon">
+        <p class="header__cart--p">Cart</p>
+      </div>
+      <nav class="header__categories">
+        <ul class="header__categories--list">
+          <li><a href="#"><img class="hamburger__menu" src="./images/hamburger.svg" alt="hamburger menu">All</a></li>
+          <li><a href="#">Fresh <img src="./images/down_arrow.svg" alt="down arrow"></a></li>
+          <li><a href="#">MX Player</a></li>
+          <li><a href="#">Sell</a></li>
+          <li><a href="#">Best Seller</a></li>
+          <li><a href="#">Mobiles</a></li>
+          <li><a href="#">Today's Deals</a></li>
+          <li><a href="#">Prime <img src="./images/down_arrow.svg" alt="down arrow"></a></li>
+          <li><a href="#">Customer Service</a></li>
+          <li><a href="#">New Releases</a></li>
+          <li><a href="#">Electronics</a></li>
+          <li><a href="#">Fashion</a></li>
+          <li><a href="#">Home & Kitchen</a></li>
+          <li><a href="#">Amazon Pay</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section class="searchresult">
+      <div class="searchresult__desc">
+        <div class="searchresult__desc--left"></div>
+        <div class="searchresult__desc--right">
+          <select class="searchresult__sortby" name="sortby">
+            <option selected hidden disabled>Sort by</option>
+            <option value="featured">Featured</option>
+            <option value="lowtohigh">Price: Low to High</option>
+            <option value="hightolow">Price: High to Low</option>
+            <option value="customerreview">Avg. Customer Review</option>
+          </select>
+        </div>
+      </div>
+      <div class="searchresult__main">
+        <div class="mainleft">
+          <div class="mainleft--title mainleft--title--ham"><img class="mainleft--title-image mainleft--title-ham" src="./images/hamburger.svg" alt="hamburger menu">Filters</div>
+          <div class="mainleft--title mainleft--title--cross"><img class="mainleft--title-image mainleft--title-cross" src="./images/cross_icon.svg" alt="hamburger menu">Filters</div>
+          <div class="mainleft__filter">
+            <div class="mainleft--title-category">Category</div>
+            <div class="mainleft__common">
+              <input id="beuty" class="mainleft__beuty--checkbox" type="checkbox" value="beuty">
+              <label class="mainleft__beuty--label" for="beuty">Beauty</label>
+            </div>
+            <div class="mainleft__common">
+              <input id="mobile" class="mainleft__mobile--checkbox" type="checkbox" value="mobile-accessories">
+              <label class="mainleft__beuty--label" for="mobile">Mobile Accessories</label>
+            </div>
+            <div class="mainleft__common">
+              <input id="mensshirt" class="mainleft__menshirt--checkbox" type="checkbox" value="mens-shirts">
+              <label class="mainleft__beuty--label" for="mensshirt">Mens Shirt</label>
+            </div>
+            <div class="mainleft__common">
+              <input id="womenbags" class="mainleft__womenbags--checkbox" type="checkbox" value="womens-bags">
+              <label class="mainleft__beuty--label" for="womenbags">Womens Bags</label>
+            </div>
+            <div class="mainleft__common">
+              <input id="motorcycle" class="mainleft__motor--checkbox" type="checkbox" value="motorcycle">
+              <label class="mainleft__beuty--label" for="motorcycle">Motor Cycle</label>
+            </div>
+            <div class="mainleft__common">
+              <input id="kitchen" class="mainleft__kitchen--checkbox" type="checkbox" value="kitchen-accessories">
+              <label class="mainleft__beuty--label" for="kitchen">kitchen Accessories</label>
+            </div>
+            <div class="mainleft--title">Price</div>
+            <div class="mainleft__price">
+              <h5 class="mainleft__price--h5">₹ <div class="minprice">40</div> - ₹ <div class="maxprice"> 30000</div>
+              </h5>
+            </div>
+            <div class="mainleft__pricerange">
+              <input class="mainleft__pricerange--slidebarmin" type="range" min="40" max="30000" value="40" step="100">
+              <input class="mainleft__pricerange--slidebarmax" type="range" min="40" max="30000" value="30000"
+                step="100">
+              <button class="mainleft__pricerange--button">Go</button>
+            </div>
+          </div>
+        </div>
+        <div class="mainright">
+          <div class="mainright__title">
+            <h3 class="mainright__title--main">Results</h3>
+            <p>Check each product page for other buying options.</p>
+          </div>
+          <div class="mainright__results"></div>
+        </div>
+      </div>
+    </section>
+  </div>
 </body>
+
 </html>

@@ -5,6 +5,7 @@ const searchResult = {
         this.container = container;
         this.fetchQuery();
         this.fetchResult();
+        this.slidebarAnimation();
     },
     fetchQuery: function () {
         const params = new URLSearchParams(window.location.search);
@@ -51,8 +52,8 @@ const searchResult = {
             mainDiv.classList.add("mainright__results--product");
             let price = product.price * 100;
             const discount = (price * product.discountPercentage) / 100;
-            const finalPrice = (Math.floor(price - discount)).toLocaleString();
-            price = (Math.floor(price)).toLocaleString();
+            const finalPrice = Math.floor(price - discount).toLocaleString();
+            price = Math.floor(price).toLocaleString();
             mainDiv.innerHTML = `
                   <div class="product__image">
                     <img class="product__image--img" src=${product.thumbnail}>
@@ -89,8 +90,12 @@ const searchResult = {
         });
     },
     slidebar: function (products) {
-        const minSlidebar = this.container.querySelector(".mainleft__pricerange--slidebarmin");
-        const maxSlidebar = this.container.querySelector(".mainleft__pricerange--slidebarmax");
+        const minSlidebar = this.container.querySelector(
+            ".mainleft__pricerange--slidebarmin"
+        );
+        const maxSlidebar = this.container.querySelector(
+            ".mainleft__pricerange--slidebarmax"
+        );
         const minPrice = this.container.querySelector(".minprice");
         const maxPrice = this.container.querySelector(".maxprice");
         minSlidebar.addEventListener("input", (e) => {
@@ -98,37 +103,40 @@ const searchResult = {
                 minSlidebar.value = maxSlidebar.value - 1;
             }
             minPrice.innerHTML = `${minSlidebar.value}`;
-        })
+        });
         maxSlidebar.addEventListener("input", (e) => {
             if (parseInt(minSlidebar.value) > parseInt(maxSlidebar.value)) {
                 maxSlidebar.value = minSlidebar.value;
             }
             maxPrice.innerHTML = `${maxSlidebar.value}`;
-        })
+        });
 
-        const clickPrice = this.container.querySelector(".mainleft__pricerange--button");
+        const clickPrice = this.container.querySelector(
+            ".mainleft__pricerange--button"
+        );
         clickPrice.addEventListener("click", () => {
             const minprice = parseInt(minSlidebar.value) / 100;
             const maxprice = parseInt(maxSlidebar.value) / 100;
-            const filteredProducts = products.filter(product => {
+            const filteredProducts = products.filter((product) => {
                 return product.price >= minprice && product.price <= maxprice;
             });
             this.renderProducts(filteredProducts);
-        })
+        });
     },
     filterProducts: function (products) {
-        const checkboxes = this.container.querySelectorAll(".mainleft input[type='checkbox']");
+        const checkboxes = this.container.querySelectorAll(
+            ".mainleft input[type='checkbox']"
+        );
         checkboxes.forEach((checkbox) => {
             checkbox.addEventListener("change", () => {
                 const selectedCategories = Array.from(checkboxes)
-                    .filter(cb => cb.checked)
-                    .map(cb => cb.value);
+                    .filter((cb) => cb.checked)
+                    .map((cb) => cb.value);
                 if (selectedCategories.length === 0) {
                     this.renderProducts(products);
                     this.sortProducts(products);
-                }
-                else {
-                    const filteredProducts = products.filter(product =>
+                } else {
+                    const filteredProducts = products.filter((product) =>
                         selectedCategories.includes(product.category)
                     );
                     this.renderProducts(filteredProducts);
@@ -145,21 +153,35 @@ const searchResult = {
                 sortProducts.sort((a, b) => {
                     return a.price - b.price;
                 });
-            }
-            else if (e.target.value === "hightolow") {
+            } else if (e.target.value === "hightolow") {
                 sortProducts.sort((a, b) => {
                     return b.price - a.price;
-                })
-            }
-            else if (e.target.value === "customerreview") {
+                });
+            } else if (e.target.value === "customerreview") {
                 sortProducts.sort((a, b) => {
                     return b.rating - a.rating;
-                })
+                });
+            } else if (e.target.value === "featured") {
             }
-            else if (e.target.value === "featured") { }
             this.renderProducts(sortProducts);
-        })
-
+        });
+    },
+    slidebarAnimation : function(){
+        if(window.innerWidth <= 768){
+            const filterBtn = this.container.querySelector(".mainleft--title--ham");
+            const crossBtn = this.container.querySelector(".mainleft--title--cross");
+            const filter = this.container.querySelector(".mainleft__filter");
+            filterBtn.addEventListener("click",()=>{
+                filter.style.left = "0";
+                filterBtn.style.display = "none";
+                crossBtn.style.display = "flex";
+            })
+            crossBtn.addEventListener("click",()=>{
+                filter.style.left = "-30rem";
+                crossBtn.style.display = "none";
+                filterBtn.style.display = "flex";
+            })
+        }
     }
 };
 
