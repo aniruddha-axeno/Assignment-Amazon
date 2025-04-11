@@ -199,9 +199,6 @@ body {
     width: 10%;
   }
 }
-.header__search:focus {
-  outline: 1rem solid #ee9a32;
-}
 .header__search .suggestedresult,
 .header__search .resulthistory {
   position: absolute;
@@ -417,7 +414,7 @@ body {
 }
 
 .main {
-  background-color: rgb(242, 245, 248);
+  background-color: #f2f5f8;
   flex: 1;
 }
 .main__banner {
@@ -477,7 +474,7 @@ body {
 .searchresult__main .mainleft--title-image {
   display: none;
 }
-.searchresult__main .mainleft--title-category {
+.searchresult__main .mainleft--title-category, .searchresult__main .mainleft--title-price {
   margin: 1rem;
   font-family: "amazon_ember_bold";
 }
@@ -495,6 +492,8 @@ body {
     margin-top: 4rem;
     left: -30rem;
     width: 20rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    border-radius: 1rem;
   }
   .searchresult__main .mainleft--title {
     display: flex;
@@ -599,7 +598,7 @@ body {
   cursor: pointer;
 }
 .searchresult__main .product__details--title:hover {
-  color: #af6000;
+  color: #c6581c;
 }
 .searchresult__main .product__details--addcart {
   background-color: #ffde08;
@@ -622,12 +621,21 @@ body {
   font-family: "amazon_ember_regular";
 }
 .searchresult__main .mainleft--title {
-  margin: 1.3rem 0.3rem;
+  margin: 1.5rem 1rem;
   font-family: "amazon_ember_bold";
+}
+@media (max-width: 768px) {
+  .searchresult__main .mainleft--title {
+    margin: 1.3rem 0.3rem;
+  }
 }
 .searchresult__main .mainleft__common {
   margin-left: 1rem;
   margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.3rem;
 }
 .searchresult__main .mainleft__common input {
   cursor: pointer;
@@ -636,7 +644,7 @@ body {
   cursor: pointer;
 }
 .searchresult__main .mainleft__common label:hover {
-  color: #af6000;
+  color: #c6581c;
 }
 .searchresult__main .mainleft__price {
   margin-left: 1rem;
@@ -658,18 +666,25 @@ body {
   position: absolute;
   pointer-events: none;
   width: 60%;
+  height: 0.5rem;
 }
 .searchresult__main .mainleft__pricerange input[type=range]::-webkit-slider-thumb {
   width: 1rem;
   height: 1rem;
   background: teal;
-  border: 3px solid white;
+  border: 3px solid #fff;
   border-radius: 50%;
   box-shadow: 0 0 0 4px rgba(0, 128, 128, 0.3);
   cursor: pointer;
   pointer-events: auto;
   position: relative;
   z-index: 4;
+}
+@media (max-width: 768px) {
+  .searchresult__main .mainleft__pricerange input[type=range]::-webkit-slider-thumb {
+    width: 0.6rem;
+    height: 0.6rem;
+  }
 }
 .searchresult__main .mainleft__pricerange--button {
   position: absolute;
@@ -683,4 +698,9 @@ body {
 }
 .searchresult__main .mainleft__pricerange--button:hover {
   background-color: #f5f0f2;
+}
+@media (max-width: 768px) {
+  .searchresult__main .mainleft__pricerange {
+    margin: 2rem 1rem;
+  }
 }
